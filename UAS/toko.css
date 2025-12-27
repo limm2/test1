@@ -1,0 +1,419 @@
+/* toko.css - Stylesheet untuk website toko baju dengan tema pink */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fff5f7;
+    color: #333;
+}
+
+.kotak-utama {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.kepala {
+    background-color: white;
+    box-shadow: 0 2px 15px rgba(233, 30, 99, 0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.kepala-dalam {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nama-website {
+    font-size: 26px;
+    font-weight: bold;
+    color: #e91e63;
+    display: flex;
+    align-items: center;
+}
+
+.nama-website i {
+    margin-right: 10px;
+}
+
+.navbar {
+    display: flex;
+    list-style: none;
+}
+
+.item-nav {
+    margin-left: 25px;
+}
+
+.link-nav {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.link-nav:hover {
+    color: #e91e63;
+}
+
+.pembuka {
+    background: linear-gradient(135deg, #f9c5d1 0%, #f5f7fa 100%);
+    padding: 70px 0;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.judul-pembuka {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.teks-pembuka {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.tombol-utama {
+    display: inline-block;
+    background-color: #e91e63;
+    color: white;
+    padding: 12px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.tombol-utama:hover {
+    background-color: #c2185b;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+}
+
+.bagian-barang {
+    padding: 50px 0;
+    margin-bottom: 50px;
+}
+
+.judul-bagian {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #333;
+    position: relative;
+}
+
+.judul-bagian:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #e91e63;
+    margin: 10px auto;
+}
+
+.kotak-barang {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.kartu-barang {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.kartu-barang:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.gambar-barang {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.info-barang {
+    padding: 20px;
+}
+
+.nama-barang {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.deskripsi-barang {
+    color: #666;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.harga-barang {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #e91e63;
+    margin-bottom: 12px;
+}
+
+.rating-barang {
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+
+.tombol-detail {
+    display: block;
+    width: 100%;
+   background-color: #e91e63;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.tombol-detail:hover {
+    background-color: #e91e63;
+}
+
+.halaman-detail {
+    padding: 90px 0 50px;
+}
+
+.detail-barang {
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.atas-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.gambar-besar {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    max-height: 500px;
+}
+
+.info-detail {
+    padding: 10px 0;
+}
+
+.judul-detail {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.harga-detail {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e91e63;
+    margin-bottom: 20px;
+}
+
+.rating-detail {
+    color: #ffc107;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.deskripsi-panjang {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.fitur-barang {
+    margin-bottom: 30px;
+}
+
+.fitur-barang h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.fitur-barang ul {
+    list-style-position: inside;
+    color: #666;
+}
+
+.fitur-barang li {
+    margin-bottom: 8px;
+}
+
+.galeri-kecil {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.gambar-kecil {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.gambar-kecil:hover {
+    opacity: 0.8;
+}
+
+.spesifikasi {
+    background-color: #fff9fa;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ffe6ee;
+}
+
+.spesifikasi h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.tabel-spesifikasi {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabel-spesifikasi tr {
+    border-bottom: 1px solid #ffe6ee;
+}
+
+.tabel-spesifikasi td {
+    padding: 12px 0;
+}
+
+.tabel-spesifikasi td:first-child {
+    font-weight: bold;
+    color: #555;
+    width: 30%;
+}
+
+.tombol-aksi {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.tombol-beli {
+    flex: 1;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.tombol-beli:hover {
+    background-color: #388E3C;
+}
+
+.tombol-kembali {
+    flex: 1;
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: 1px solid #ddd;
+}
+
+.tombol-kembali:hover {
+    background-color: #e0e0e0;
+}
+
+.bawah {
+    background-color: #333;
+    color: white;
+    padding: 40px 0 20px;
+    margin-top: 50px;
+}
+
+.bawah-dalam {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.bagian-bawah {
+    padding: 10px;
+}
+
+.judul-bawah {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.bagian-bawah p, .bagian-bawah a {
+    color: #ccc;
+    margin-bottom: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.bagian-bawah a:hover {
+    color: #e91e63;
+}
+
+.sosial {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.icon-sosial {
+    font-size: 1.2rem;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.icon-sosial:hover {
+    color: #e91e63;
+}
+
+.hak-cipta {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    color: #aaa;
+    font-size: 0.9rem;
+}

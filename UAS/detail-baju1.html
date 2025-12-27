@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaos Distro Hitam Premium - Toko Baju</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .kotak-utama {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Bagian Kepala */
+        .kepala {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .kepala-dalam {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nama-website {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ff6b35;
+        }
+
+        .nama-website i {
+            font-size: 32px;
+        }
+
+        .navbar {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .link-nav {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .link-nav:hover {
+            color: #ff6b35;
+        }
+
+        .link-nav:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: #ff6b35;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s;
+        }
+
+        .link-nav:hover:after {
+            width: 100%;
+        }
+
+        /* Halaman Detail */
+        .halaman-detail {
+            padding: 40px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .detail-barang {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .atas-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 900px) {
+            .atas-detail {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        .gambar-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .gambar-besar {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .galeri-kecil {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gambar-kecil {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .gambar-kecil:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: #ff6b35;
+        }
+
+        .info-detail h1 {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .harga-detail {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 15px;
+        }
+
+        .harga-asli {
+            font-size: 20px;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 15px;
+        }
+
+        .rating-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .rating-detail i {
+            color: #ffc107;
+            font-size: 20px;
+        }
+
+        .rating-detail span {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .diskon-badge {
+            display: inline-block;
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .deskripsi-panjang {
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .fitur-barang {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ff6b35;
+        }
+
+        .fitur-barang h3 {
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .fitur-barang ul {
+            list-style-position: inside;
+            color: #555;
+        }
+
+        .fitur-barang li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        .fitur-barang li:before {
+            content: "✓";
+            color: #ff6b35;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .ukuran-pilihan {
+            margin-bottom: 25px;
+        }
+
+        .ukuran-pilihan h3 {
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .pilihan-ukuran {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .ukuran {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .ukuran:hover {
+            border-color: #ff6b35;
+            color: #ff6b35;
+        }
+
+        .ukuran.terpilih {
+            background-color: #ff6b35;
+            color: white;
+            border-color: #ff6b35;
+        }
+
+        .tombol-aksi {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .tombol-beli {
+            flex: 1;
+            background-color: #ff6b35;
+            color: white;
+            padding: 18px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tombol-beli:hover {
+            background-color: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .tombol-kembali {
+            flex: 1;
+            background-color: #6c757d;
+            color: white;
+            padding: 18px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tombol-kembali:hover {
+            background-color: #5a6268;
+            transform: translateY(-3px);
+        }
+
+        /* Spesifikasi */
+        .spesifikasi {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .spesifikasi h2 {
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            font-size: 24px;
+            border-bottom: 3px solid #ff6b35;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .tabel-spesifikasi {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tabel-spesifikasi tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tabel-spesifikasi tr:last-child {
+            border-bottom: none;
+        }
+
+        .tabel-spesifikasi td {
+            padding: 15px 10px;
+        }
+
+        .tabel-spesifikasi td:first-child {
+            font-weight: 600;
+            color: #1a1a1a;
+            width: 200px;
+        }
+
+        .tabel-spesifikasi td:last-child {
+            color: #555;
+        }
+
+        /* Bagian Bawah */
+        .bawah {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .bawah-dalam {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .bawah-dalam {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        .bagian-bawah h3 {
+            color: #ff6b35;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .bagian-bawah p {
+            color: #bbb;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .bagian-bawah a {
+            display: block;
+            color: #bbb;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .bagian-bawah a:hover {
+            color: #ff6b35;
+            padding-left: 5px;
+        }
+
+        .sosial {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .icon-sosial {
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .icon-sosial:hover {
+            background-color: #ff6b35;
+            transform: translateY(-5px);
+        }
+
+        .hak-cipta {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+            }
+            
+            .gambar-besar {
+                height: 300px;
+            }
+            
+            .galeri-kecil {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .tombol-aksi {
+                flex-direction: column;
+            }
+            
+            .info-detail h1 {
+                font-size: 26px;
+            }
+            
+            .harga-detail {
+                font-size: 28px;
+            }
+        }
+
+        /* Stok Info */
+        .stok-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            background-color: #e8f5e9;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+        }
+
+        .stok-info i {
+            color: #4caf50;
+            font-size: 20px;
+        }
+
+        .stok-info span {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* Pengiriman */
+        .info-pengiriman {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 5px solid #2196f3;
+        }
+
+        .info-pengiriman h4 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-pengiriman p {
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Bagian Kepala -->
+    <header class="kepala">
+        <div class="kotak-utama">
+            <div class="kepala-dalam">
+                <div class="nama-website">
+                    <i class="fas fa-tshirt"></i> StreetWearID
+                </div>
+                <nav>
+                    <ul class="navbar">
+                        <li class="item-nav"><a href="index.html" class="link-nav">Beranda</a></li>
+                        <li class="item-nav"><a href="#" class="link-nav">Kaos Distro</a></li>
+                        <li class="item-nav"><a href="#" class="link-nav">Hoodie</a></li>
+                        <li class="item-nav"><a href="#" class="link-nav">Jaket</a></li>
+                        <li class="item-nav"><a href="#" class="link-nav">Promo</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Halaman Detail -->
+    <main class="halaman-detail">
+        <div class="kotak-utama">
+            <div class="detail-barang">
+                <div class="atas-detail">
+                    <div class="gambar-detail">
+                        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Kaos Distro Hitam Premium" class="gambar-besar">
+                        
+                        <div class="galeri-kecil">
+                            <img src="https://images.unsplash.com/photo-1523381140794-a1eef18a37c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                                 alt="Kaos tampak depan" class="gambar-kecil">
+                            <img src="https://images.unsplash.com/photo-1558769132-cb1a40ed0ada?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                                 alt="Kaos tampak belakang" class="gambar-kecil">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                                 alt="Detail sablon" class="gambar-kecil">
+                            <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                                 alt="Bahan kaos" class="gambar-kecil">
+                        </div>
+                    </div>
+                    
+                    <div class="info-detail">
+                        <h1 class="judul-detail">Kaos Distro Hitam Premium - Urban Streetwear</h1>
+                        
+                        <div class="harga-detail">
+                            <span class="harga-asli">Rp 249.000</span> Rp 179.000
+                            <span class="diskon-badge">DISKON 28%</span>
+                        </div>
+                        
+                        <div class="rating-detail">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.7 (342 ulasan)</span>
+                        </div>
+                        
+                        <div class="stok-info">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Stok Tersedia: 47 pcs</span>
+                        </div>
+                        
+                        <p class="deskripsi-panjang">
+                            Kaos distro premium dengan desain urban streetwear yang edgy dan fashionable. 
+                            Menggunakan bahan combed 30s premium yang lembut, tebal, dan tidak menerawang. 
+                            Sablon plastisol berkualitas tinggi yang tahan lama tanpa mudah retak. 
+                            Cocok untuk gaya kasual sehari-hari, hangout, atau koleksi streetwear Anda.
+                        </p>
+                        
+                        <div class="ukuran-pilihan">
+                            <h3>Pilih Ukuran:</h3>
+                            <div class="pilihan-ukuran">
+                                <div class="ukuran terpilih">S</div>
+                                <div class="ukuran">M</div>
+                                <div class="ukuran">L</div>
+                                <div class="ukuran">XL</div>
+                                <div class="ukuran">XXL</div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-pengiriman">
+                            <h4><i class="fas fa-shipping-fast"></i> Gratis Ongkir</h4>
+                            <p>Gratis pengiriman ke seluruh Indonesia untuk pembelian minimal Rp 300.000</p>
+                        </div>
+                        
+                        <div class="fitur-barang">
+                            <h3>Spesifikasi Produk:</h3>
+                            <ul>
+                                <li>Bahan: Combed 30s Premium (240gsm)</li>
+                                <li>Warna: Hitam solid</li>
+                                <li>Sablon: Plastisol High Density</li>
+                                <li>Potongan: Regular Fit</li>
+                                <li>Lingkar Dada: S(98cm), M(102cm), L(106cm), XL(110cm), XXL(114cm)</li>
+                                <li>Panjang: S(68cm), M(70cm), L(72cm), XL(74cm), XXL(76cm)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tombol-aksi">
+                            <a href="#" class="tombol-beli">
+                                <i class="fas fa-shopping-cart"></i> Tambah ke Keranjang
+                            </a>
+                            <a href="toko.html" class="tombol-kembali">
+                                <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="spesifikasi">
+                    <h2>Detail Spesifikasi</h2>
+                    <table class="tabel-spesifikasi">
+                        <tr>
+                            <td>Kategori</td>
+                            <td>Kaos Distro / Streetwear</td>
+                        </tr>
+                        <tr>
+                            <td>Material</td>
+                            <td>100% Cotton Combed 30s (Premium)</td>
+                        </tr>
+                        <tr>
+                            <td>Gramasi</td>
+                            <td>240 GSM (Tebal & Nyaman)</td>
+                        </tr>
+                        <tr>
+                            <td>Teknik Sablon</td>
+                            <td>Plastisol High Density (Tahan Lama)</td>
+                        </tr>
+                        <tr>
+                            <td>Warna Tersedia</td>
+                            <td>Hitam, Putih, Navy, Army Green</td>
+                        </tr>
+                        <tr>
+                            <td>Perawatan</td>
+                            <td>Dicuci terbalik, suhu maksimal 30°C, jangan disetrika di area sablon</td>
+                        </tr>
+                        <tr>
+                            <td>Asal Produksi</td>
+                            <td>Bandung, Indonesia</td>
+                        </tr>
+                        <tr>
+                            <td>Garansi</td>
+                            <td>Garansi sablon 6 bulan (kecuali kesalahan perawatan)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bagian Bawah -->
+    <footer class="bawah">
+        <div class="kotak-utama">
+            <div class="bawah-dalam">
+                <div class="bagian-bawah">
+                    <h3 class="judul-bawah">StreetWearID</h3>
+                    <p>Toko streetwear lokal dengan kualitas premium. Kami menghadirkan produk distro original dengan desain terkini untuk penampilan urban yang stylish.</p>
+                    <div class="sosial">
+                        <a href="#" class="icon-sosial"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="icon-sosial"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="icon-sosial"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="bagian-bawah">
+                    <h3 class="judul-bawah">Koleksi</h3>
+                    <a href="#">Kaos Distro</a>
+                    <a href="#">Hoodie & Sweater</a>
+                    <a href="#">Jaket Streetwear</a>
+                    <a href="#">Topi & Aksesoris</a>
+                    <a href="#">Limited Edition</a>
+                </div>
+                
+                <div class="bagian-bawah">
+                    <h3 class="judul-bawah">Bantuan</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Distro No. 45, Bandung</p>
+                    <p><i class="fas fa-phone"></i> (022) 8765-4321</p>
+                    <p><i class="fas fa-envelope"></i> cs@streetwearid.com</p>
+                    <p><i class="fas fa-clock"></i> Buka: 09.00 - 21.00 WIB</p>
+                </div>
+            </div>
+            
+            <div class="hak-cipta">
+                <p>&copy; 2023 StreetWearID. Semua hak dilindungi. | Kaos Distro Original Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fungsi untuk memilih ukuran
+        document.querySelectorAll('.ukuran').forEach(ukuran => {
+            ukuran.addEventListener('click', function() {
+                // Hapus class terpilih dari semua ukuran
+                document.querySelectorAll('.ukuran').forEach(u => {
+                    u.classList.remove('terpilih');
+                });
+                
+                // Tambah class terpilih ke ukuran yang diklik
+                this.classList.add('terpilih');
+                
+                // Update pesan pilihan ukuran
+                const ukuranTerpilih = this.textContent;
+                alert(`Ukuran ${ukuranTerpilih} telah dipilih!`);
+            });
+        });
+
+        // Fungsi untuk mengganti gambar utama saat gambar kecil diklik
+        document.querySelectorAll('.gambar-kecil').forEach(gambar => {
+            gambar.addEventListener('click', function() {
+                const src = this.getAttribute('src');
+                document.querySelector('.gambar-besar').setAttribute('src', src);
+                
+                // Tambah efek aktif pada gambar kecil
+                document.querySelectorAll('.gambar-kecil').forEach(img => {
+                    img.style.borderColor = 'transparent';
+                });
+                this.style.borderColor = '#ff6b35';
+            });
+        });
+
+        // Tombol beli sekarang
+        document.querySelector('.tombol-beli').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Cek apakah ukuran sudah dipilih
+            const ukuranTerpilih = document.querySelector('.ukuran.terpilih');
+            if (!ukuranTerpilih) {
+                alert('Silakan pilih ukuran terlebih dahulu!');
+                return;
+            }
+            
+            const ukuran = ukuranTerpilih.textContent;
+            const konfirmasi = confirm(`Anda akan membeli Kaos Distro Hitam Premium\nUkuran: ${ukuran}\nHarga: Rp 179.000\n\nLanjutkan ke keranjang belanja?`);
+            
+            if (konfirmasi) {
+                alert('Produk berhasil ditambahkan ke keranjang belanja!');
+                // Di sini biasanya diarahkan ke halaman keranjang atau checkout
+            }
+        });
+    </script>
+</body>
+</html>

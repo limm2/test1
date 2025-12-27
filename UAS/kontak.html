@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak | Kirim Pesan</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#020617;
+    color:#e5e7eb;
+}
+
+.kontak-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    background:
+        radial-gradient(circle at top left, #ec4899, transparent 40%),
+        radial-gradient(circle at bottom right, #a855f7, transparent 40%),
+        #020617;
+}
+
+.kontak-card{
+    max-width:800px;
+    width:100%;
+    background:rgba(255,255,255,0.07);
+    backdrop-filter:blur(18px);
+    border-radius:28px;
+    padding:50px;
+    box-shadow:0 40px 80px rgba(0,0,0,0.6);
+}
+
+.kontak-card h1{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.kontak-card span{
+    color:#ec4899;
+}
+
+.kontak-card p{
+    text-align:center;
+    opacity:0.85;
+    margin-bottom:40px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    opacity:0.8;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:14px 16px;
+    border-radius:14px;
+    border:none;
+    outline:none;
+    background:rgba(255,255,255,0.1);
+    color:#fff;
+    font-size:14px;
+}
+
+.form-group textarea{
+    resize:none;
+    height:140px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color:#cbd5f5;
+    opacity:0.6;
+}
+
+.btn-area{
+    text-align:center;
+    margin-top:30px;
+}
+
+.btn-pink{
+    display:inline-block;
+    padding:14px 36px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#ec4899,#a855f7);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    border:none;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-pink:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(236,72,153,0.5);
+}
+
+.back-home{
+    text-align:center;
+    margin-top:25px;
+}
+
+.back-home a{
+    color:#fbcfe8;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.back-home a:hover{
+    text-decoration:underline;
+}
+
+@media(max-width:600px){
+    .kontak-card{
+        padding:30px;
+    }
+
+    .kontak-card h1{
+        font-size:30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="kontak-page">
+    <div class="kontak-card">
+        <h1>Kirim <span>Pesan</span></h1>
+        <p>Silakan kirim pesan, saya akan membalas secepat mungkin</p>
+
+        <form>
+            <div class="form-group">
+                <label>Nama</label>
+                <input type="text" placeholder="Masukkan nama Anda">
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="Masukkan email Anda">
+            </div>
+
+            <div class="form-group">
+                <label>Pesan</label>
+                <textarea placeholder="Tulis pesan Anda di sini..."></textarea>
+            </div>
+
+            <div class="btn-area">
+                <button type="submit" class="btn-pink">
+                    <i class="fas fa-paper-plane"></i> Kirim Pesan
+                </button>
+            </div>
+        </form>
+
+        <div class="back-home">
+            <a href="toko.html">
+                <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+            </a>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
